@@ -1,0 +1,99 @@
+function randomN1() {
+  // Obtener un número random del 1 - 6
+  var randomNumber1 = Math.random();
+  randomNumber1 = Math.floor(randomNumber1 * 6) + 1;
+
+  // Obtener el atributo src de la imagen a modificar
+  var stringSrc = document.querySelector(".img1").getAttribute("src");
+
+  // Extraer la parte de la cadena sin el numero
+  stringSrc = stringSrc.slice(0, (length - 5));
+
+  // Concatenar la cadena con el numero random y el resto de la cadena
+  stringSrc = stringSrc + randomNumber1 + ".png";
+
+  // Reemplazar el atributo src original con la cadena nueva.
+  document.querySelector(".img1").setAttribute("src", stringSrc);
+}
+
+//Repetir funcion para el segundo dado
+function randomN2() {
+  // Obtener un número random del 1 - 6
+  var randomNumber1 = Math.random();
+  randomNumber1 = Math.floor(randomNumber1 * 6) + 1;
+
+  // Obtener el atributo src de la imagen a modificar
+  var stringSrc = document.querySelector(".img2").getAttribute("src");
+
+  // Extraer la parte de la cadena sin el numero
+  stringSrc = stringSrc.slice(0, (length - 5));
+
+  // Concatenar la cadena con el numero random y el resto de la cadena
+  stringSrc = stringSrc + randomNumber1 + ".png";
+
+  // Reemplazar el atributo src original con la cadena nueva.
+  document.querySelector(".img2").setAttribute("src", stringSrc);
+}
+
+function playDice() {
+  randomN1();
+  randomN2();
+}
+
+
+________________________________________________________________________________________
+
+
+
+//Función para obtener el número random del 1-6
+function luck() {
+  // Obtener un número random del 1 - 6
+  var randomNumber = Math.random();
+  randomNumber = Math.floor(randomNumber * 6) + 1;
+  return randomNumber;
+}
+
+//Función para dado 1 recibe el numero random
+function dice1(luckyN) {
+  // Obtener el atributo src de la imagen a modificar
+  var stringSrc = document.querySelector(".img1").getAttribute("src");
+  // Extraer la parte de la cadena sin el numero
+  stringSrc = stringSrc.slice(0, (length - 5));
+  // Concatenar la cadena con el numero random y el resto de la cadena
+  stringSrc = stringSrc + luckyN + ".png";
+  // Reemplazar el atributo src original con la cadena nueva.
+  document.querySelector(".img1").setAttribute("src", stringSrc);
+}
+
+//Función para dado 2 recibe el numero random
+function dice2(luckyM) {
+  // Obtener el atributo src de la imagen a modificar
+  var stringSrc = document.querySelector(".img2").getAttribute("src");
+  // Extraer la parte de la cadena sin el numero
+  stringSrc = stringSrc.slice(0, (length - 5));
+  // Concatenar la cadena con el numero random y el resto de la cadena
+  stringSrc = stringSrc + luckyM + ".png";
+  // Reemplazar el atributo src original con la cadena nueva.
+  document.querySelector(".img2").setAttribute("src", stringSrc);
+}
+
+//Función para jugar dados
+function playDice() {
+  // LLama y guarada dos numeros random
+  var lucky1 = luck();
+  var lucky2 = luck();
+  // Se los envía a los dados
+  dice1(lucky1);
+  dice2(lucky2);
+  // Envía mensaje de victoria al HTML de la etiqueta h1
+  if (lucky1 > lucky2){
+    document.querySelector("h1").innerHTML = "Gana el Player 1";
+  } else if (lucky1 < lucky2) {
+    document.querySelector("h1").innerHTML = "Gana el Player 2";;
+  } else {
+    document.querySelector("h1").innerHTML = "Parece un empate";
+  }
+}
+
+
+______________________________________________________________________________
